@@ -19,4 +19,14 @@ export const GlobalStyle = createGlobalStyle`
         height: 100vh;
         background-color: ${(props) => props.theme["bg-body"]};
     }
+
+    ::-webkit-scrollbar {
+        width: 1rem;
+        background-color: #1b1b1b;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: ${(props) => props.theme["default-blue"]};
+  border-radius: .5rem;
+}
 `;

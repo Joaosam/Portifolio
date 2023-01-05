@@ -3,7 +3,7 @@ import { HeaderContainer, Ul } from "./styles";
 export function Header() {
   const navigation = [
     { name: "Home", href: "#home" },
-    { name: "Sobre mim", href: "#about" },
+    { name: "Sobre mim", href: "#profile" },
     { name: "Conhecimentos", href: "#skills" },
     { name: "Projetos", href: "#projects" },
   ];

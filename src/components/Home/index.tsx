@@ -11,7 +11,7 @@ import {
 
 export function Home() {
   return (
-    <HomeContainer>
+    <HomeContainer id="home">
       <Hello>
         <h2>Olá, eu sou</h2>
         <h1>João Santos</h1>
