@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { themeDefault } from "../../styles/themes/default";
-// I was expecting SimpleInterpolation, but you passed (props: any) => any
 
 type PropsThemeDefault = typeof themeDefault;
 
