@@ -9,7 +9,7 @@ export function Profile() {
       <Description>
         <div className="title">
           <h2>
-            Sobre mim <span>.</span>
+            Sobre mim<span>.</span>
           </h2>
         </div>
         <div className="aboutMe">
