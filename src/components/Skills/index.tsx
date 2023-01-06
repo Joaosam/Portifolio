@@ -15,7 +15,9 @@ interface SkillProps {
 }
 
 export function Skills() {
-  const [descriptionSkill, setDescriptionSkill] = useState("");
+  const [descriptionSkill, setDescriptionSkill] = useState(
+    "/*Passe o cursor do mouse no card*/"
+  );
 
   function displayDescription(title: string) {
     data.filter((skill) => {
@@ -26,7 +28,7 @@ export function Skills() {
   }
 
   function clearDescription() {
-    setDescriptionSkill("/*Passe o cursor do mouse no card para ler*/");
+    setDescriptionSkill("/*Passe o cursor do mouse no card*/");
   }
 
   return (
