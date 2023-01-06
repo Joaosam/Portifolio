@@ -96,6 +96,10 @@ export const ContainerDescriptionSkills = styled.div`
     color: ${(props) => props.theme.white};
     font-size: 4rem;
   }
+
+  span {
+    color: ${(props) => props.theme["default-blue"]};
+  }
 `;
 
 export const Description = styled.div`

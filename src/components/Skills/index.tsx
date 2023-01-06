@@ -56,7 +56,9 @@ export function Skills() {
       </ListSkillsContainer>
       <ContainerDescriptionSkills>
         <div className="title">
-          <h3>Conhecimetos</h3>
+          <h3>
+            Conhecimetos<span>.</span>
+          </h3>
         </div>
         <Description>{descriptionSkill}</Description>
       </ContainerDescriptionSkills>
