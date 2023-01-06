@@ -16,11 +16,9 @@ export function Header() {
       </div>
       <nav>
         {navigation.map((nav) => (
-          <Ul>
+          <Ul key={nav.name}>
             <li>
-              <a key={nav.href} href={nav.href}>
-                {nav.name}
-              </a>
+              <a href={nav.href}>{nav.name}</a>
             </li>
           </Ul>
         ))}
