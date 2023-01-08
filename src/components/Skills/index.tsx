@@ -21,9 +21,7 @@ export function Skills() {
 
   function displayDescription(title: string) {
     data.filter((skill) => {
-      if (skill.title === title) {
-        setDescriptionSkill(skill.description);
-      }
+      skill.title === title && setDescriptionSkill(skill.description);
     });
   }
 
