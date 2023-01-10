@@ -47,11 +47,7 @@ export function Projects() {
       <ProjectsContent>
         {data.map((projectCurrent: dataAPIProps) => (
           <Project key={projectCurrent.id}>
-            <a
-              key={projectCurrent.id}
-              href={projectCurrent.homepage}
-              target="_blank"
-            >
+            <a href={projectCurrent.homepage} target="_blank">
               <div className="imgContainer">
                 <p>{projectCurrent.name}</p>
                 <ImageViewRepos
