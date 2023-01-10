@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { themeDefault } from "../../styles/themes/default";
 
-type PropsThemeDefault = typeof themeDefault;
+export type PropsThemeDefault = typeof themeDefault;
 
 interface SocialProps {
   theme: PropsThemeDefault;

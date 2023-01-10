@@ -1,5 +1,5 @@
 import {
-  Description,
+  ImageViewRepos,
   Modal,
   Project,
   ProjectsContainer,
@@ -8,6 +8,16 @@ import {
 } from "./styles";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { format } from "date-fns";
+import ptBR from "date-fns/esm/locale/pt-BR/index.js";
+
+interface dataAPIProps {
+  id: string;
+  name: string;
+  created_at: any;
+  default_branch: string;
+  homepage: string;
+}
 
 export function Projects() {
   const { isLoading, data } = useQuery(
@@ -27,8 +37,6 @@ export function Projects() {
     return <h1>Carregando...</h1>;
   }
 
-  data.map((bla: any) => console.log(bla));
-
   return (
     <ProjectsContainer id="projects">
       <Title>
@@ -37,34 +45,37 @@ export function Projects() {
         </h1>
       </Title>
       <ProjectsContent>
-        <Project>
-          <div className="imgContainer">
-            <p>HUBKUT</p>
-            <img
-              src="https://raw.githubusercontent.com/Joaosam/todo-list/master/.github/preview-todolist.png"
-              alt="Imagem ilustrativa do Hubkut"
-            />
-          </div>
-          <Modal>
-            <p>06 de Janeiro de 2023</p>
-            <p>Ver mais</p>
-          </Modal>
-
-          <a href="https://joaosam.github.io/Hubkut/" target="_blank"></a>
-          <Description>
-            <h3>Hubkut</h3>
-            <p>
-              Neste projeto a ideia é unir o layout do Orkut consumindo a API do
-              Github, carregando assim as informações do usuário do Github
-              pesquisado na página de login.
-            </p>
-            <div className="goToRepos">
-              <a href="https://joaosam.github.io/Hubkut/" target="_blank">
-                Visualizar Projeto
-              </a>
-            </div>
-          </Description>
-        </Project>
+        {data.map((projectCurrent: dataAPIProps) => (
+          <Project key={projectCurrent.id}>
+            <a
+              key={projectCurrent.id}
+              href={projectCurrent.homepage}
+              target="_blank"
+            >
+              <div className="imgContainer">
+                <p>{projectCurrent.name}</p>
+                <ImageViewRepos
+                  src={`https://raw.githubusercontent.com/Joaosam/${projectCurrent.name}/${projectCurrent.default_branch}/.github/preview-${projectCurrent.name}.png`}
+                  alt={`Imagem ilustrativa de ${projectCurrent.name}`}
+                />
+              </div>
+              <Modal>
+                {
+                  <p>
+                    {format(
+                      new Date(projectCurrent.created_at),
+                      "dd 'de' MMMM 'de' yyyy",
+                      {
+                        locale: ptBR,
+                      }
+                    )}
+                  </p>
+                }
+                <p>Ver mais</p>
+              </Modal>
+            </a>
+          </Project>
+        ))}
       </ProjectsContent>
     </ProjectsContainer>
   );
