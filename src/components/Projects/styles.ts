@@ -38,7 +38,7 @@ export const Title = styled.div`
   }
 `;
 
-export const Modal = styled.div`
+export const Sidebar = styled.div`
   transition: 0.7s;
   width: 100%;
   display: flex;
@@ -49,7 +49,7 @@ export const Modal = styled.div`
   align-items: center;
   padding: 1.2rem;
   background-color: transparent;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 0 0 10px 10px;
   color: transparent;
 
   p:nth-child(2) {
@@ -59,8 +59,8 @@ export const Modal = styled.div`
 `;
 
 export const ImageViewRepos = styled.img`
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   width: 100%;
   height: 30rem;
   border-bottom: 5px solid ${(props) => props.theme["default-blue"]};
@@ -89,6 +89,7 @@ export const Project = styled.div`
 
   &:hover {
     transform: scale(1.1);
+    cursor: pointer;
   }
 
   &:hover .imgContainer ${ImageViewRepos} {
@@ -120,7 +121,7 @@ export const Project = styled.div`
     }
   }
 
-  &:hover ${Modal} {
+  &:hover ${Sidebar} {
     bottom: -15%;
     background-color: ${(props) => props.theme["bg-components"]};
     color: ${(props) => props.theme.white};
