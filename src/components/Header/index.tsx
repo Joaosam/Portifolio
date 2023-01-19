@@ -1,26 +1,35 @@
-import { HeaderContainer, Ul } from "./styles";
+import { HeaderContainer, NavLinkStyled } from "./styles";
+import { Link } from "react-scroll";
 
 export function Header() {
   const navigation = [
-    { name: "Home", href: "#home" },
-    { name: "Sobre mim", href: "#profile" },
-    { name: "Conhecimentos", href: "#skills" },
-    { name: "Projetos", href: "#projects" },
+    { id: 1, name: "Home", href: "home" },
+    { id: 2, name: "Sobre mim", href: "profile" },
+    { id: 3, name: "Conhecimentos", href: "skills" },
+    { id: 4, name: "Projetos", href: "projects" },
   ];
   return (
     <HeaderContainer>
       <div>
-        <a href="#home">
+        <Link to="home">
           <code>&lsaquo;JS/&rsaquo;</code>
-        </a>
+        </Link>
       </div>
       <nav>
         {navigation.map((nav) => (
-          <Ul key={nav.name}>
+          <NavLinkStyled key={nav.id}>
             <li>
-              <a href={nav.href}>{nav.name}</a>
+              <Link
+                activeClass="active"
+                to={nav.href}
+                spy={true}
+                smooth={true}
+                duration={200}
+              >
+                {nav.name}
+              </Link>
             </li>
-          </Ul>
+          </NavLinkStyled>
         ))}
       </nav>
     </HeaderContainer>

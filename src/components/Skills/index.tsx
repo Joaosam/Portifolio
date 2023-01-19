@@ -8,6 +8,7 @@ import {
   SkillsContainer,
   List,
 } from "./style";
+import { Fade } from "react-awesome-reveal";
 
 interface SkillProps {
   description: string;
@@ -34,33 +35,37 @@ export function Skills() {
       <ListSkillsContainer>
         {data.map((skill: SkillProps) => (
           <ListSkills key={skill.title}>
-            <List
-              downList={
-                skill.title === "ReactJS" ||
-                skill.title === "Jest" ||
-                skill.title === "Styled-components"
-              }
-              onMouseEnter={() => {
-                displayDescription(skill.title);
-              }}
-              onMouseLeave={clearDescription}
-            >
-              <span>{skill.title}</span>
-              <img
-                src={`/src/assets/logo-${skill.title}.svg`}
-                alt={`Ícone ${skill.title}`}
-              />
-            </List>
+            <Fade direction="left">
+              <List
+                downList={
+                  skill.title === "ReactJS" ||
+                  skill.title === "Jest" ||
+                  skill.title === "Styled-components"
+                }
+                onMouseEnter={() => {
+                  displayDescription(skill.title);
+                }}
+                onMouseLeave={clearDescription}
+              >
+                <span>{skill.title}</span>
+                <img
+                  src={`/src/assets/logo-${skill.title}.svg`}
+                  alt={`Ícone ${skill.title}`}
+                />
+              </List>
+            </Fade>
           </ListSkills>
         ))}
       </ListSkillsContainer>
       <ContainerDescriptionSkills>
-        <div className="title">
-          <h3>
-            Conhecimetos<span>.</span>
-          </h3>
-        </div>
-        <Description>{descriptionSkill}</Description>
+        <Fade direction="right" cascade delay={1} damping={0.3}>
+          <div className="title">
+            <h3>
+              Conhecimetos<span>.</span>
+            </h3>
+          </div>
+          <Description>{descriptionSkill}</Description>
+        </Fade>
       </ContainerDescriptionSkills>
     </SkillsContainer>
   );

@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { PropsThemeDefault } from "../Home/styles";
+import { RippleButtonContainer } from "./components/Ripple/styles";
 
 interface ThemeProps {
   theme: PropsThemeDefault;
@@ -17,7 +18,8 @@ export const ProjectsContainer = styled.section`
     text-align: center;
     margin-bottom: 2rem;
   }
-  .title > h1 {
+
+  h1 {
     color: ${(props) => props.theme.white};
     font-size: 4rem;
   }
@@ -52,7 +54,8 @@ export const Sidebar = styled.div`
   border-radius: 0 0 10px 10px;
   color: transparent;
 
-  p:nth-child(2) {
+  ${RippleButtonContainer} {
+    color: ${(props) => props.theme["bg-body"]};
     padding: 0.5rem 1.5rem;
     border-radius: 2rem;
   }
@@ -89,7 +92,6 @@ export const Project = styled.div`
 
   &:hover {
     transform: scale(1.1);
-    cursor: pointer;
   }
 
   &:hover .imgContainer ${ImageViewRepos} {
@@ -107,11 +109,12 @@ export const Project = styled.div`
     }
 
     p {
+      text-transform: uppercase;
       font-weight: 700;
       position: absolute;
       top: 25%;
-      left: 40%;
-      z-index: 2;
+      right: 50%;
+      transform: translate(50%, 50%);
       font-size: 2rem;
       color: ${(props) => props.theme.white};
     }
@@ -125,10 +128,85 @@ export const Project = styled.div`
     bottom: -15%;
     background-color: ${(props) => props.theme["bg-components"]};
     color: ${(props) => props.theme.white};
+    z-index: 99;
 
-    p:nth-child(2) {
+    ${RippleButtonContainer} {
+      text-decoration: none;
+      transition: 0.5s;
+      opacity: 0.8;
       animation: ${scaleUpTop} 0.8s 0.5s forwards;
       border: 1px solid ${(props) => props.theme["secundary-color"]};
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+        filter: brightness(1.1);
+      }
+    }
+  }
+`;
+
+export const LoadingData = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  ${ProjectsContainer} h1 {
+    display: none;
+  }
+`;
+
+export const ErrorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  color: ${(props) => props.theme.danger};
+
+  h3 {
+    color: ${(props) => props.theme["text-default"]};
+    font-size: 2rem;
+  }
+`;
+
+export const BackProject = styled.div`
+  width: 100%;
+  height: 30rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: 0.3s;
+  background-color: ${(props) => props.theme["bg-components-2"]};
+  color: ${(props) => props.theme["text-default"]};
+  padding-inline: 1.2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid ${(props) => props.theme["secundary-color"]};
+  border-bottom: none;
+
+  span {
+    font-size: 1.4rem;
+  }
+
+  .containerBtnBackProject {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: ${(props) => props.theme.white};
+      background-image: linear-gradient(
+        90deg,
+        rgba(123, 50, 241, 0.8) 0.1%,
+        rgba(102, 16, 242, 0.648) 100%
+      );
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      opacity: 0.7;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 `;

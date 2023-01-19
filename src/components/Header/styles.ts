@@ -12,7 +12,7 @@ export const HeaderContainer = styled.header`
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3rem);
   -webkit-backdrop-filter: blur(3rem);
-  z-index: 2;
+  z-index: 999;
   box-shadow: 3px 3px 7px #000,
     -3px -3px 7px ${(props) => props.theme["default-blue"]};
 
@@ -33,15 +33,16 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const Ul = styled.ul`
+export const NavLinkStyled = styled.ul`
   list-style: none;
 
-  li > a {
+  a {
     text-decoration: none;
     color: ${(props) => props.theme.white};
     font-size: 1.5rem;
-    opacity: 0.5;
     transition: 0.5s;
+    opacity: 0.5;
+    cursor: pointer;
 
     &:hover {
       opacity: 1;
@@ -60,7 +61,15 @@ export const Ul = styled.ul`
       transition: 0.5s;
     }
 
-    &:hover::after {
+    &:hover:after {
+      width: 100%;
+    }
+  }
+
+  .active {
+    opacity: 1;
+
+    &::after {
       width: 100%;
     }
   }

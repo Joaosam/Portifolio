@@ -82,21 +82,21 @@ const shadowInsetCenter = (props: SocialProps) => keyframes`
       };
     }
     100% {
-      box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 0 65px 0 rgba(0, 0, 0, 0.5);
     }
   `;
 
 export const SocialMedia = styled.div<SocialProps>`
   width: 15rem;
   border-radius: 1rem;
-  box-shadow: inset 0px 0 15px 0
+  box-shadow: inset 0px 0 12px 0
     ${(props) =>
       props.linkedin
         ? props.theme["default-blue"]
         : props.theme["secundary-color"]};
 
   &:hover {
-    animation: ${shadowInsetCenter} 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    animation: ${shadowInsetCenter} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       both reverse;
   }
 `;

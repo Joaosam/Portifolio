@@ -9,14 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@types/react-scroll": "^1.8.6",
     "axios": "^1.2.2",
     "date-fns": "^2.29.3",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
+    "react-awesome-reveal": "^4.1.0",
+    "react-card-flip": "^1.2.0",
     "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.3.4",
     "react-query": "^3.39.2",
+    "react-ripple-effect": "^1.0.4",
+    "react-scroll": "^1.8.9",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

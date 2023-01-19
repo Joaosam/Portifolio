@@ -1,5 +1,10 @@
+import { useState } from "react";
+
 import {
+  BackProject,
+  ErrorContainer,
   ImageViewRepos,
+  LoadingData,
   Project,
   ProjectsContainer,
   ProjectsContent,
@@ -8,22 +13,29 @@ import {
 } from "./styles";
 import axios from "axios";
 import { useQuery } from "react-query";
+
 import { format } from "date-fns";
 import ptBR from "date-fns/esm/locale/pt-BR/index.js";
-import { Modal } from "./components/Modal";
-import { useState } from "react";
 
-export interface dataAPIProps {
-  id: string;
+import { RotatingLines } from "react-loader-spinner";
+import { Warning } from "phosphor-react";
+
+import { RippleButton } from "./components/Ripple";
+import ReactCardFlip from "react-card-flip";
+import { Fade, Slide } from "react-awesome-reveal";
+interface dataAPIProps {
+  id: number;
   name: string;
-  created_at: any;
+  created_at: string;
   default_branch: string;
   homepage: string;
+  description: string;
+  html_url: string;
 }
 
 export function Projects() {
-  const [openModal, setOpenModal] = useState(false);
-  const { isLoading, data } = useQuery(
+  const [isFlipped, setIsFlipped] = useState(0);
+  const { isLoading, data, isError } = useQuery(
     "/repos",
     () =>
       axios
@@ -36,50 +48,90 @@ export function Projects() {
     }
   );
 
-  if (isLoading) {
-    return <h1>Carregando...</h1>;
-  }
-  function toggleModal(openModal: boolean) {
-    setOpenModal(openModal);
+  function handleClick(projectCurrent: dataAPIProps) {
+    if (isFlipped !== projectCurrent.id) {
+      setIsFlipped(projectCurrent.id);
+    } else {
+      setIsFlipped(0);
+    }
   }
 
   return (
     <ProjectsContainer id="projects">
-      <Title>
-        <h1>
-          Projetos<span>.</span>
-        </h1>
-      </Title>
-      <ProjectsContent>
-        {data.map((projectCurrent: dataAPIProps) => (
-          <Project key={projectCurrent.id} onClick={() => toggleModal(true)}>
-            {openModal && (
-              <Modal onToggleModal={toggleModal} stateOpenModal={openModal} />
-            )}
-            <div className="imgContainer">
-              <p>{projectCurrent.name}</p>
-              <ImageViewRepos
-                src={`https://raw.githubusercontent.com/Joaosam/${projectCurrent.name}/${projectCurrent.default_branch}/.github/preview-${projectCurrent.name}.png`}
-                alt={`Imagem ilustrativa de ${projectCurrent.name}`}
+      <Slide direction="down" cascade delay={1}>
+        <Title>
+          <h1>
+            Projetos<span>.</span>
+          </h1>
+        </Title>
+      </Slide>
+      <Fade delay={450} cascade damping={1e-1}>
+        <ProjectsContent>
+          {isLoading && (
+            <LoadingData>
+              <RotatingLines
+                strokeColor="#00AEEF"
+                strokeWidth="5"
+                animationDuration="1"
+                width="50"
+                visible={true}
               />
-            </div>
-            <Sidebar>
-              {
-                <p>
-                  {format(
-                    new Date(projectCurrent.created_at),
-                    "dd 'de' MMMM 'de' yyyy",
-                    {
-                      locale: ptBR,
-                    }
-                  )}
-                </p>
-              }
-              <p>Ver mais</p>
-            </Sidebar>
-          </Project>
-        ))}
-      </ProjectsContent>
+              <h1>Carregando...</h1>
+            </LoadingData>
+          )}
+          {isError && (
+            <ErrorContainer>
+              <Warning size={50} />
+              <h3>Falha ao buscar projetos. Tente novamente mais tarde!</h3>
+            </ErrorContainer>
+          )}
+          {data?.map((projectCurrent: dataAPIProps) => (
+            <Project key={projectCurrent.id}>
+              <div className="imgContainer">
+                <p>{projectCurrent.name}</p>
+                <ReactCardFlip
+                  isFlipped={isFlipped === projectCurrent.id}
+                  flipDirection="horizontal"
+                  flipSpeedBackToFront={2}
+                  flipSpeedFrontToBack={2}
+                >
+                  <ImageViewRepos
+                    src={`https://raw.githubusercontent.com/Joaosam/${projectCurrent.name}/${projectCurrent.default_branch}/.github/preview-${projectCurrent.name}.png`}
+                    alt={`Imagem ilustrativa de ${projectCurrent.name}`}
+                  />
+                  <BackProject>
+                    <span>{projectCurrent.description}</span>
+                    <div className="containerBtnBackProject">
+                      <a href={projectCurrent.html_url} target="_blank">
+                        Acessar repositório
+                      </a>
+                      <a href={projectCurrent.homepage} target="_blank">
+                        Acessar projeto
+                      </a>
+                    </div>
+                  </BackProject>
+                </ReactCardFlip>
+              </div>
+              <Sidebar>
+                {
+                  <p>
+                    {format(
+                      new Date(projectCurrent.created_at),
+                      "dd 'de' MMMM 'de' yyyy",
+                      {
+                        locale: ptBR,
+                      }
+                    )}
+                  </p>
+                }
+                <div onClick={() => handleClick(projectCurrent)}>
+                  <RippleButton>Ver mais</RippleButton>
+                </div>
+              </Sidebar>
+            </Project>
+          ))}
+        </ProjectsContent>
+      </Fade>
     </ProjectsContainer>
   );
 }
