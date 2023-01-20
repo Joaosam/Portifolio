@@ -1,4 +1,4 @@
-import { LinkedinLogo, GithubLogo } from "phosphor-react";
+import { LinkedinLogo, GithubLogo, CaretDown } from "phosphor-react";
 import developer from "../../assets/developer.svg";
 import {
   Contact,
@@ -39,6 +39,7 @@ export function Home() {
           alt="ilustração de homem programando em seu computador"
         />
       </DeveloperIlustration>
+      <CaretDown className="caretDown" size={80} />
     </HomeContainer>
   );
 }

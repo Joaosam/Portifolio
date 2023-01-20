@@ -7,6 +7,12 @@ export const ProfileContainer = styled.section`
   justify-content: space-between;
   align-items: flex-end;
   gap: 5rem;
+
+  @media (max-width: 1024px) {
+    gap: 0;
+    padding: 10rem 3rem;
+    text-align: center;
+  }
 `;
 
 export const ProfileImage = styled.div`
@@ -32,6 +38,10 @@ export const ProfileImage = styled.div`
     position: relative;
     z-index: 1;
   }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const Description = styled.div`
@@ -53,6 +63,17 @@ export const Description = styled.div`
   p {
     &:nth-child(1) {
       margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .title {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .aboutMe {
+      font-size: 2rem;
     }
   }
 `;

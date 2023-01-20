@@ -23,6 +23,14 @@ export const ProjectsContainer = styled.section`
     color: ${(props) => props.theme.white};
     font-size: 4rem;
   }
+
+  @media (max-width: 768px) {
+    padding: 10rem 3rem;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    padding: 10rem 6rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -59,6 +67,13 @@ export const Sidebar = styled.div`
     padding: 0.5rem 1.5rem;
     border-radius: 2rem;
   }
+
+  @media (max-width: 1024px) {
+    bottom: -15%;
+    background-color: ${(props) => props.theme["bg-components"]};
+    color: ${(props) => props.theme.white};
+    z-index: 99;
+  }
 `;
 
 export const ImageViewRepos = styled.img`
@@ -82,6 +97,15 @@ export const ProjectsContent = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1440px) {
+    padding-inline: 12rem;
+  }
 `;
 
 export const Project = styled.div`
@@ -142,6 +166,13 @@ export const Project = styled.div`
         opacity: 1;
         filter: brightness(1.1);
       }
+    }
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+
+    &:hover {
+      transform: scale(1);
     }
   }
 `;

@@ -8,15 +8,11 @@ export const SkillsContainer = styled.section`
   padding: 15rem;
   display: flex;
   align-items: flex-start;
-`;
 
-export const ListSkillsContainer = styled.div`
-  width: 50%;
-  display: grid;
-  grid-template-areas:
-    "li li li "
-    "li li li ";
-  grid-gap: 5rem;
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    padding: 10rem 3rem;
+  }
 `;
 
 const jelloHorizontal = keyframes`
@@ -43,11 +39,27 @@ const jelloHorizontal = keyframes`
   }
 `;
 
+export const ListSkillsContainer = styled.div`
+  width: 100%;
+  display: grid;
+  place-items: center;
+`;
+
 export const ListSkills = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-areas:
+    "li li li "
+    "li li li ";
+  grid-gap: 5rem;
   list-style: none;
+
+  @media (max-width: 1024px) {
+    grid-gap: 6rem;
+    grid-template-areas:
+      "li li "
+      "li li "
+      "li li ";
+  }
 `;
 
 export const List = styled.li<ListProps>`
@@ -86,6 +98,22 @@ export const List = styled.li<ListProps>`
   img {
     width: 10rem;
   }
+
+  @media (max-width: 1024px) {
+    &:hover span {
+      top: 13.5rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    img {
+      width: 12rem;
+    }
+
+    &:hover span {
+      top: ${(props) => (props.downList ? "15.5rem" : "-5.5rem")};
+    }
+  }
 `;
 
 export const ContainerDescriptionSkills = styled.div`
@@ -100,6 +128,13 @@ export const ContainerDescriptionSkills = styled.div`
   span {
     color: ${(props) => props.theme["default-blue"]};
   }
+
+  @media (max-width: 1024px) {
+    .title h3 {
+      font-size: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
 `;
 
 export const Description = styled.div`
@@ -107,4 +142,8 @@ export const Description = styled.div`
   font-size: 2rem;
   width: 50%;
   margin-left: 25%;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;

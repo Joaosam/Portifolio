@@ -49,11 +49,9 @@ export function Projects() {
   );
 
   function handleClick(projectCurrent: dataAPIProps) {
-    if (isFlipped !== projectCurrent.id) {
-      setIsFlipped(projectCurrent.id);
-    } else {
-      setIsFlipped(0);
-    }
+    isFlipped !== projectCurrent.id
+      ? setIsFlipped(projectCurrent.id)
+      : setIsFlipped(0);
   }
 
   return (

@@ -9,11 +9,48 @@ interface SocialProps {
   github?: boolean;
 }
 
+const scrollDown = keyframes`
+  from {
+      opacity: 0;
+    }
+    to {
+      transform: translateY(40%);
+      opacity: 1;
+    }
+`;
+
 export const HomeContainer = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15rem;
+
+  .caretDown {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 3rem;
+    height: 95vh;
+
+    .caretDown {
+      display: initial;
+      position: absolute;
+      bottom: 10%;
+      color: ${(props) => props.theme["default-blue"]};
+      animation: ${scrollDown} 1s ease-in-out alternate infinite;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding-inline: 3rem;
+  }
+
+  @media (min-width: 1440px) {
+    height: 90vh;
+  }
 `;
 
 const textFocusIn = keyframes`
@@ -26,13 +63,14 @@ const textFocusIn = keyframes`
       opacity: 1;
     }
 `;
-const typing = keyframes`
-    from {
+const typing = (width: string) => keyframes`
+  from {
     width: 0;
   }
   to {
-    width: 76%;
+    width: ${width};
   }
+
 `;
 const blinkCursor = (props: SocialProps) => keyframes`
   from {
@@ -52,7 +90,7 @@ export const Hello = styled.div`
     color: ${(props) => props.theme["default-blue"]};
     font-size: 5rem;
     animation: ${blinkCursor} 500ms steps(12) infinite normal,
-      ${typing} 2.5s 0.2s steps(12) normal;
+      ${typing("76%")} 2.5s 0.2s steps(12) normal;
     white-space: nowrap;
     overflow: hidden;
     border-right: 2px solid ${(props) => props.theme["secundary-color"]};
@@ -64,6 +102,32 @@ export const Hello = styled.div`
     font-weight: 500;
     text-transform: uppercase;
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      width: 68%;
+      font-size: 3rem;
+      animation: ${blinkCursor} 500ms steps(12) infinite normal,
+        ${typing("68%")} 2.5s 0.2s steps(12) normal;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    h1 {
+      width: 72%;
+      font-size: 6rem;
+      animation: ${blinkCursor} 500ms steps(12) infinite normal,
+        ${typing("72%")} 2.5s 0.2s steps(12) normal;
+    }
+
+    h2 {
+      font-size: 4rem;
+    }
+  }
 `;
 
 export const Contact = styled.div`
@@ -71,6 +135,11 @@ export const Contact = styled.div`
   align-items: center;
   justify-content: space-evenly;
   margin-top: 3.2rem;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
 `;
 
 const shadowInsetCenter = (props: SocialProps) => keyframes`
@@ -130,5 +199,23 @@ export const DeveloperIlustration = styled.div`
   img {
     width: 40rem;
     animation: ${pulse} 1.5s linear alternate infinite;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    img {
+      width: 28rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    img {
+      width: 50rem;
+    }
   }
 `;

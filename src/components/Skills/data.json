@@ -1,25 +1,31 @@
 [
   {
+    "id": 1,
     "title": "HTML",
     "description": "HTML é uma linguagem baseada em marcação, onde marcamos os elementos para definir quais informações a página vai exibir."
   },
   {
+    "id": 2,
     "title": "CSS",
     "description": "CSS é uma linguagem de folha de estilo composta por “camadas”, criado com o propósito de estilizar as páginas HTML."
   },
   {
+    "id": 3,
     "title": "TypeScript",
     "description": "TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala."
   },
   {
+    "id": 4,
     "title": "ReactJS",
     "description": "ReactJS é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web."
   },
   {
+    "id": 5,
     "title": "Styled-components",
     "description": "Utilizando template literals (uma adição recente ao JavaScript) e o poder do CSS, styled-components permite que você escreva código CSS real para estilizar seus componentes."
   },
   {
+    "id": 6,
     "title": "Jest",
     "description": "Jest é um poderoso Framework de Testes em JavaScript com um foco na simplicidade."
   }

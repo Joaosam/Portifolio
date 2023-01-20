@@ -4,13 +4,14 @@ import {
   ContainerDescriptionSkills,
   Description,
   ListSkills,
-  ListSkillsContainer,
   SkillsContainer,
   List,
+  ListSkillsContainer,
 } from "./style";
 import { Fade } from "react-awesome-reveal";
 
 interface SkillProps {
+  id: number;
   description: string;
   title: string;
 }
@@ -33,10 +34,11 @@ export function Skills() {
   return (
     <SkillsContainer id="skills">
       <ListSkillsContainer>
-        {data.map((skill: SkillProps) => (
-          <ListSkills key={skill.title}>
-            <Fade direction="left">
+        <ListSkills>
+          <Fade direction="left" delay={200}>
+            {data.map((skill: SkillProps) => (
               <List
+                key={skill.id}
                 downList={
                   skill.title === "ReactJS" ||
                   skill.title === "Jest" ||
@@ -53,12 +55,12 @@ export function Skills() {
                   alt={`Ícone ${skill.title}`}
                 />
               </List>
-            </Fade>
-          </ListSkills>
-        ))}
+            ))}
+          </Fade>
+        </ListSkills>
       </ListSkillsContainer>
       <ContainerDescriptionSkills>
-        <Fade direction="right" cascade delay={1} damping={0.3}>
+        <Fade direction="right" cascade delay={200} damping={0.3}>
           <div className="title">
             <h3>
               Conhecimetos<span>.</span>

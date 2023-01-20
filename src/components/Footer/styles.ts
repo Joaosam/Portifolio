@@ -13,4 +13,12 @@ export const FooterContainer = styled.footer`
   code {
     color: ${(props) => props.theme["default-blue"]};
   }
+
+  @media (max-width: 768px) {
+    padding: 2rem 3rem;
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
 `;

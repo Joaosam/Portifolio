@@ -10,13 +10,15 @@ export function Profile() {
         </ProfileImage>
       </Fade>
       <Description>
-        <Fade direction="down" cascade delay={1} damping={-0.3}>
+        <Fade direction="down" cascade delay={100} damping={-0.3}>
           <div className="title">
             <h2>
               Sobre mim<span>.</span>
             </h2>
           </div>
-          <div className="aboutMe">
+        </Fade>
+        <div className="aboutMe">
+          <Fade direction="down" cascade delay={150} damping={-0.3}>
             <p>
               Tive meu primeiro contato com programação na faculdade de
               tecnologia, mas acabei me afastando da área por um tempo. No
@@ -26,14 +28,16 @@ export function Profile() {
               também. Assim, espero alcançar meus objetivos como profissional da
               área o mais rápido possível.
             </p>
+          </Fade>
+          <Fade direction="down" cascade delay={180} damping={-0.3}>
             <p>
               Busco uma oportunidade na áera de{" "}
               <span>desenvolvimento web </span>
               com o objetivo de obter experiências, vivências e também aprimorar
               meu desenvolvimento profissional e pessoal.
             </p>
-          </div>
-        </Fade>
+          </Fade>
+        </div>
       </Description>
     </ProfileContainer>
   );

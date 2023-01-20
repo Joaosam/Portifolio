@@ -40,4 +40,8 @@ export const RippleButtonContainer = styled.button`
     position: relative;
     z-index: 20;
   }
+
+  @media (max-width: 1024px) {
+    background: ${(props) => props.theme["secundary-color"]};
+  }
 `;
