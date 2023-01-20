@@ -51,7 +51,7 @@ export function Skills() {
               >
                 <span>{skill.title}</span>
                 <img
-                  src={`./src/assets/logo-${skill.title}.svg`}
+                  src={`../../assets/logo-${skill.title}.svg`}
                   alt={`Ícone ${skill.title}`}
                 />
               </List>
