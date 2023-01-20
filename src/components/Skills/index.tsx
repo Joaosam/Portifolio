@@ -10,6 +10,10 @@ import {
 } from "./style";
 import HTML from "../../assets/logo-HTML.svg";
 import CSS from "../../assets/logo-CSS.svg";
+import TypeScript from "../../assets/logo-TypeScript.svg";
+import ReactJS from "../../assets/logo-ReactJS.svg";
+import Styledcomponents from "../../assets/logo-Styled-components.svg";
+import Jest from "../../assets/logo-Jest.svg";
 
 import { Fade } from "react-awesome-reveal";
 
@@ -19,6 +23,8 @@ interface SkillProps {
   title: string;
   path: string;
 }
+
+const pathSvg = [HTML, CSS, TypeScript, ReactJS, Styledcomponents, Jest];
 
 export function Skills() {
   const [descriptionSkill, setDescriptionSkill] = useState(
@@ -54,7 +60,9 @@ export function Skills() {
                 onMouseLeave={clearDescription}
               >
                 <span>{skill.title}</span>
-                <img src={HTML} alt={`Ícone ${skill.title}`} />
+                {skill.path !== pathSvg[skill.id] && (
+                  <img src={pathSvg[skill.id]} alt={`Ícone ${skill.title}`} />
+                )}
               </List>
             ))}
           </Fade>
