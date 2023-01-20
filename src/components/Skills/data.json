@@ -2,31 +2,37 @@
   {
     "id": 1,
     "title": "HTML",
-    "description": "HTML é uma linguagem baseada em marcação, onde marcamos os elementos para definir quais informações a página vai exibir."
+    "description": "HTML é uma linguagem baseada em marcação, onde marcamos os elementos para definir quais informações a página vai exibir.",
+    "path": "../../src/assets/logo-HTML.svg"
   },
   {
     "id": 2,
     "title": "CSS",
-    "description": "CSS é uma linguagem de folha de estilo composta por “camadas”, criado com o propósito de estilizar as páginas HTML."
+    "description": "CSS é uma linguagem de folha de estilo composta por “camadas”, criado com o propósito de estilizar as páginas HTML.",
+    "path": "../../src/assets/logo-CSS.svg"
   },
   {
     "id": 3,
     "title": "TypeScript",
-    "description": "TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala."
+    "description": "TypeScript é uma linguagem de programação fortemente tipada que se baseia em JavaScript, oferecendo melhores ferramentas em qualquer escala.",
+    "path": "../../src/assets/logo-TypeScript.svg"
   },
   {
     "id": 4,
     "title": "ReactJS",
-    "description": "ReactJS é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web."
+    "description": "ReactJS é uma biblioteca JavaScript de código aberto com foco em criar interfaces de usuário em páginas web.",
+    "path": "../../src/assets/logo-REactJS.svg"
   },
   {
     "id": 5,
     "title": "Styled-components",
-    "description": "Utilizando template literals (uma adição recente ao JavaScript) e o poder do CSS, styled-components permite que você escreva código CSS real para estilizar seus componentes."
+    "description": "Utilizando template literals (uma adição recente ao JavaScript) e o poder do CSS, styled-components permite que você escreva código CSS real para estilizar seus componentes.",
+    "path": "../../src/assets/logo-Styled-components.svg"
   },
   {
     "id": 6,
     "title": "Jest",
-    "description": "Jest é um poderoso Framework de Testes em JavaScript com um foco na simplicidade."
+    "description": "Jest é um poderoso Framework de Testes em JavaScript com um foco na simplicidade.",
+    "path": "../../src/assets/logo-Jest.svg"
   }
 ]
