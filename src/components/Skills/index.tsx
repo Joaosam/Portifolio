@@ -8,7 +8,9 @@ import {
   List,
   ListSkillsContainer,
 } from "./style";
+import HTML from "../../assets/logo-HTML.svg";
 import CSS from "../../assets/logo-CSS.svg";
+
 import { Fade } from "react-awesome-reveal";
 
 interface SkillProps {
@@ -52,7 +54,7 @@ export function Skills() {
                 onMouseLeave={clearDescription}
               >
                 <span>{skill.title}</span>
-                <img src={skill.path} alt={`Ícone ${skill.title}`} />
+                <img src={HTML} alt={`Ícone ${skill.title}`} />
               </List>
             ))}
           </Fade>
