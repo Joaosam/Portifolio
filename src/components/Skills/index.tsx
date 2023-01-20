@@ -21,7 +21,6 @@ interface SkillProps {
   id: number;
   description: string;
   title: string;
-  path: string;
 }
 
 const pathSvg = [HTML, CSS, TypeScript, ReactJS, Styledcomponents, Jest];
@@ -60,9 +59,7 @@ export function Skills() {
                 onMouseLeave={clearDescription}
               >
                 <span>{skill.title}</span>
-                {skill.path !== pathSvg[skill.id] && (
-                  <img src={pathSvg[skill.id]} alt={`Ícone ${skill.title}`} />
-                )}
+                <img src={pathSvg[skill.id]} alt={`Ícone ${skill.title}`} />
               </List>
             ))}
           </Fade>
