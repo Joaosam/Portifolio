@@ -11,11 +11,10 @@ import {
   Sidebar,
   Title,
 } from "./styles";
-import axios from "axios";
-import { useQuery } from "react-query";
+import { useProjects } from "../../services/useProjects";
 
 import { format } from "date-fns";
-import ptBR from "date-fns/esm/locale/pt-BR/index.js";
+import ptBR from "date-fns/locale/pt-BR";
 
 import { RotatingLines } from "react-loader-spinner";
 import { Warning } from "phosphor-react";
@@ -35,18 +34,7 @@ interface dataAPIProps {
 
 export function Projects() {
   const [isFlipped, setIsFlipped] = useState(0);
-  const { isLoading, data, isError } = useQuery(
-    "/repos",
-    () =>
-      axios
-        .get(
-          "https://api.github.com/users/joaosam/repos?sort=created&per_page=6"
-        )
-        .then((response) => response.data),
-    {
-      refetchOnWindowFocus: false,
-    }
-  );
+  const { isLoading, data, isError } = useProjects();
 
   function handleClick(projectCurrent: dataAPIProps) {
     isFlipped !== projectCurrent.id
@@ -80,11 +68,11 @@ export function Projects() {
           {isError && (
             <ErrorContainer>
               <Warning size={50} />
-              <h3>Falha ao buscar projetos. Tente novamente mais tarde!</h3>
+              <h3>Falha ao buscar os projetos. Tente novamente mais tarde!</h3>
             </ErrorContainer>
           )}
           {data?.map((projectCurrent: dataAPIProps) => (
-            <Project key={projectCurrent.id}>
+            <Project data-testid="project" key={projectCurrent.id}>
               <div className="imgContainer">
                 <p>{projectCurrent.name}</p>
                 <ReactCardFlip

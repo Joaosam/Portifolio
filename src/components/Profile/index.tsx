@@ -17,7 +17,7 @@ export function Profile() {
             </h2>
           </div>
         </Fade>
-        <div className="aboutMe">
+        <div data-testid="aboutMe" className="aboutMe">
           <Fade direction="down" cascade delay={150} damping={-0.3}>
             <p>
               Tive meu primeiro contato com programação na faculdade de
@@ -25,16 +25,15 @@ export function Profile() {
               entanto, em abril de 2022 meu interesse por programação e
               tecnologia voltou. E depois de ver a paixão que muitos
               programadores têm por essa profissão, comecei a me apaixonar
-              também. Assim, espero alcançar meus objetivos como profissional da
-              área o mais rápido possível.
+              também.
             </p>
           </Fade>
           <Fade direction="down" cascade delay={180} damping={-0.3}>
             <p>
-              Busco uma oportunidade na áera de{" "}
-              <span>desenvolvimento web </span>
-              com o objetivo de obter experiências, vivências e também aprimorar
-              meu desenvolvimento profissional e pessoal.
+              Com experiência em React.js, JavaScript, TypeScript, Styled
+              Components, consumo de APIs REST e metodologia ágil. Atualmente
+              atuo como <span>desenvolvedor Front-end </span> na Hiplatform,
+              onde trabalho especialmente com o chatbot e FAQ.
             </p>
           </Fade>
         </div>

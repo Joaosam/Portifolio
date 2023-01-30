@@ -25,6 +25,7 @@ export function Header() {
       <nav className={active ? "active" : "inactive"}>
         <BtnMobile>
           <input
+            data-testid="inputMobile"
             onChange={handleToggleActive}
             checked={active}
             type="checkbox"

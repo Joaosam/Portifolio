@@ -47,6 +47,7 @@ export function Skills() {
           <Fade direction="left" delay={200}>
             {data.map((skill: SkillProps) => (
               <List
+                data-testid="list"
                 key={skill.id}
                 downList={
                   skill.title === "ReactJS" ||
