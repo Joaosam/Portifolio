@@ -224,7 +224,7 @@ export const BackProject = styled.div`
 
     a {
       text-decoration: none;
-      color: ${(props) => props.theme.white};
+      color: #fff;
       background-image: linear-gradient(
         90deg,
         rgba(123, 50, 241, 0.8) 0.1%,
@@ -232,11 +232,15 @@ export const BackProject = styled.div`
       );
       padding: 0.5rem 1.5rem;
       border-radius: 2rem;
-      opacity: 0.7;
+      opacity: 1;
       transition: 0.3s;
 
       &:hover {
-        opacity: 1;
+        background-image: linear-gradient(
+          90deg,
+          rgba(123, 50, 241, 0.9) 0.1%,
+          rgba(102, 16, 242, 0.848) 100%
+        );
       }
     }
   }
