@@ -70,8 +70,8 @@ export const HeaderContainer = styled.header`
   backdrop-filter: blur(3rem);
   -webkit-backdrop-filter: blur(3rem);
   z-index: 999;
-  box-shadow: 3px 3px 7px #000,
-    -3px -3px 7px ${(props) => props.theme["default-blue"]};
+  box-shadow: 3px 3px 7px ${(props) => props.theme["bg-body"]},
+    -3px -3px 7px ${(props) => props.theme["bg-secundary"]};
 
   div > a {
     font-size: 2.5rem;

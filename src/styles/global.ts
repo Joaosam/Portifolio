@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 
     ::-webkit-scrollbar {
         width: 1rem;
-        background-color: #1b1b1b;
+        background-color: ${(props) => props.theme["bg-body"]};
 }
 
 ::-webkit-scrollbar-thumb {

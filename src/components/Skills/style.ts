@@ -1,3 +1,4 @@
+import { parseWithOptions } from "date-fns/fp";
 import styled, { keyframes } from "styled-components";
 
 interface ListProps {
@@ -67,14 +68,14 @@ export const List = styled.li<ListProps>`
   padding: 1.2rem;
   transition: 0.5s;
   position: relative;
-  background-color: #292929;
-  box-shadow: 3px 3px 7px #000,
+  background-color: ${(props) => props.theme["bg-body"]};
+  box-shadow: 3px 3px 7px ${(props) => props.theme["bg-body"]},
     -3px -3px 7px ${(props) => props.theme["default-blue"]};
 
   &:hover {
-    background-color: initial;
+    background-color: ${(props) => props.theme["bg-components"]};
     animation: ${jelloHorizontal} 1s both;
-    box-shadow: 3px 3px 7px #000,
+    box-shadow: 3px 3px 7px ${(props) => props.theme["bg-body"]},
       -3px -3px 7px ${(props) => props.theme["secundary-color"]};
   }
   &:hover span {
@@ -86,7 +87,7 @@ export const List = styled.li<ListProps>`
     left: 50%;
     transform: translateX(-50%);
     padding: 0.6rem 1.2rem;
-    background-color: #292929;
+    background-color: ${(props) => props.theme["bg-components"]};
     border-radius: 1rem;
     top: ${(props) => (props.downList ? "14rem" : "-5.5rem")};
   }
