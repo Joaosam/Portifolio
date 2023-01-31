@@ -74,6 +74,7 @@ describe("Projects component", () => {
     render(<Projects />);
 
     expect(screen.getByText("Projetos")).toBeInTheDocument();
+    expect(screen.getByText("Teste")).toBeInTheDocument();
 
     await userEvent.hover(screen.getByTestId("project"));
 
@@ -110,18 +111,18 @@ describe("Projects component", () => {
   it("should render back card", async () => {
     render(<Projects />);
 
-    await userEvent.hover(screen.getByTestId("project"));
-
     expect(screen.getByText("Descrição do projeto")).not.toBeVisible();
+    const button = screen.getByRole("button", {
+      name: /ver mais/i,
+    });
 
-    await userEvent.click(
-      screen.getByRole("button", {
-        name: /ver mais/i,
-      })
-    );
+    await userEvent.hover(screen.getByTestId("project"));
+    await userEvent.click(button);
 
     await waitFor(() => {
       expect(screen.getByText("Descrição do projeto")).toBeVisible();
     });
+
+    await userEvent.click(button);
   });
 });
