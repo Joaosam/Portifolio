@@ -33,7 +33,7 @@ Meu portifolio. A ideia desse projeto é mostrar um pouco sobre minha pessoa qua
 
 ## 🎨 Layout
 
-<img src=".github/preview-Portfiolio.png" width="100%">
+<img src=".github/preview-Portifolio.png" width="100%">
 
 # 🚀 Tecnologias utilizadas
 
